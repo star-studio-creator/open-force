@@ -10,6 +10,7 @@ pub enum Level {
     SecretNight,
     TopSecretNight,
     Flooded,
+    Adaptive,
 }
 
 impl Level {
@@ -22,6 +23,7 @@ impl Level {
             "永夜" => Some(Level::SecretNight),
             "终夜" => Some(Level::TopSecretNight),
             "水淹" => Some(Level::Flooded),
+            "适应" => Some(Level::Adaptive),
             _ => None,
         }
     }
@@ -35,6 +37,7 @@ impl Level {
             Level::SecretNight => "永夜",
             Level::TopSecretNight => "终夜",
             Level::Flooded => "水淹",
+            Level::Adaptive => "适应",
         }
     }
 
@@ -47,6 +50,7 @@ impl Level {
             2232 => Some(Level::SecretNight),
             2242 => Some(Level::Flooded),
             // TODO: 缺少终夜（零号大坝）的地图 ID
+            8802 => Some(Level::Adaptive),
             _ => None,
         }
     }

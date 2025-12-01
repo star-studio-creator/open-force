@@ -38,7 +38,7 @@ impl Map {
             1901 | 1902 | 1911 | 1912 => Some(Map::Forest),
             8101 | 8102 | 8103 => Some(Map::Brakkesh),
             3901 | 3902 => Some(Map::SpaceCity),
-            8803 => Some(Map::TidalPrison),
+            8802 | 8803 => Some(Map::TidalPrison),
             _ => None,
         }
     }
