@@ -5,8 +5,9 @@ pub enum EscapeResult {
     EscapeSuccess,
     KilledByOperator,
     KilledByBot,
-    KilledByOneself,
     MidwayExit,
+    KilledByOneself,
+    FallFromHeight,
     EscapeFailedUnknown,
 }
 
@@ -16,8 +17,9 @@ impl EscapeResult {
             "撤离成功" => Some(EscapeResult::EscapeSuccess),
             "撤离失败 - 干员击杀" => Some(EscapeResult::KilledByOperator),
             "撤离失败 - AI 击杀" => Some(EscapeResult::KilledByBot),
-            "撤离失败 - 自杀" => Some(EscapeResult::KilledByOneself),
             "中途退出" => Some(EscapeResult::MidwayExit),
+            "撤离失败 - 自杀" => Some(EscapeResult::KilledByOneself),
+            "撤离失败 - 高处坠落" => Some(EscapeResult::FallFromHeight),
             "撤离失败 - 未知原因" => Some(EscapeResult::EscapeFailedUnknown),
             _ => None,
         }
@@ -28,8 +30,9 @@ impl EscapeResult {
             EscapeResult::EscapeSuccess => "撤离成功",
             EscapeResult::KilledByOperator => "撤离失败 - 干员击杀",
             EscapeResult::KilledByBot => "撤离失败 - AI 击杀",
-            EscapeResult::KilledByOneself => "撤离失败 - 自杀",
             EscapeResult::MidwayExit => "中途退出",
+            EscapeResult::KilledByOneself => "撤离失败 - 自杀",
+            EscapeResult::FallFromHeight => "撤离失败 - 高处坠落",
             EscapeResult::EscapeFailedUnknown => "撤离失败 - 未知原因",
         }
     }
@@ -42,7 +45,8 @@ impl EscapeResult {
             3 => Some(EscapeResult::KilledByBot),
             7 => Some(EscapeResult::MidwayExit),
             10 => Some(EscapeResult::KilledByOneself),
-            4 | 6 | 9 | 11 => Some(EscapeResult::EscapeFailedUnknown),
+            11 => Some(EscapeResult::FallFromHeight),
+            4 | 6 | 9 => Some(EscapeResult::EscapeFailedUnknown),
             _ => None,
         }
     }
