@@ -57,16 +57,20 @@ impl Display for BattleRecord {
             self.level.as_str(),
             self.operator.as_str(),
         )?;
+
+        let minutes = self.duration_seconds / 60;
+        let seconds = self.duration_seconds % 60;
         writeln!(
             f,
-            "{}{}对局时长：{} 秒",
+            "{}{}对局时长：{} 分 {} 秒",
             self.escape_result.as_str(),
             // 根据撤离结果调整制表符数量，保证输出对齐
             match self.escape_result {
                 EscapeResult::EscapeSuccess | EscapeResult::MidwayExit => "\t\t",
                 _ => "\t",
             },
-            self.duration_seconds,
+            minutes,
+            seconds
         )?;
         writeln!(
             f,
