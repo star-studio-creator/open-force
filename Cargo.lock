@@ -165,7 +165,7 @@ name = "cli"
 version = "0.0.0"
 dependencies = [
  "clap",
- "df-sdk",
+ "sdk",
  "serde_json",
  "thiserror",
  "time",
@@ -203,19 +203,6 @@ checksum = "a41953f86f8a05768a6cda24def994fd2f424b04ec5c719cf89989779f199071"
 dependencies = [
  "powerfmt",
  "serde_core",
-]
-
-[[package]]
-name = "df-sdk"
-version = "0.0.0"
-dependencies = [
- "async-stream",
- "reqwest",
- "serde",
- "serde_json",
- "thiserror",
- "time",
- "tokio-stream",
 ]
 
 [[package]]
@@ -981,6 +968,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "891d81b926048e76efe18581bf793546b4c0eaf8448d72be8de2bbee5fd166e1"
 dependencies = [
  "windows-sys 0.61.2",
+]
+
+[[package]]
+name = "sdk"
+version = "0.0.0"
+dependencies = [
+ "async-stream",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "thiserror",
+ "time",
+ "tokio-stream",
 ]
 
 [[package]]

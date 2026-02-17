@@ -1,7 +1,7 @@
 pub mod get;
 
 use clap::Subcommand;
-use df_sdk::sdk::DeltaForceSdk;
+use sdk::sdk::DeltaForceSdk;
 use get::get;
 
 use crate::OutputFormat;

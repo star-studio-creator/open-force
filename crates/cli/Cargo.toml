@@ -8,14 +8,14 @@ path = "src/main.rs"
 
 [dependencies]
 clap = { version = "4.5", features = ["derive"] }
-df-sdk = { path = "../df-sdk" }
+sdk = { path = "../sdk" }
 serde_json = "1.0"
+thiserror = "2.0"
+time = { version = "0.3", features = [
+  "formatting",
+  "local-offset",
+  "macros",
+  "parsing",
+] }
 tokio = { version = "1.48", features = ["macros", "rt-multi-thread"] }
 tokio-stream = { version = "0.1", default-features = false }
-time = { version = "0.3", features = [
-    "macros",
-    "parsing",
-    "formatting",
-    "local-offset",
-] }
-thiserror = "2.0"
