@@ -20,6 +20,9 @@ pub enum Operator {
     HackClaw,
     // TODO: 非官方翻译
     SilverWing,
+    EagleOwl,
+    EagleOwlBodyguardFirebat,
+    EagleOwlBodyguardRocketTrooper,
 }
 
 impl Operator {
@@ -38,6 +41,9 @@ impl Operator {
             "露娜" => Some(Operator::Luna),
             "骇爪" => Some(Operator::HackClaw),
             "银翼" => Some(Operator::SilverWing),
+            "赤枭（赛伊德）" => Some(Operator::EagleOwl),
+            "赤枭亲卫（喷火兵）" => Some(Operator::EagleOwlBodyguardFirebat),
+            "赤枭亲卫（火箭兵）" => Some(Operator::EagleOwlBodyguardRocketTrooper),
             _ => None,
         }
     }
@@ -58,6 +64,9 @@ impl Operator {
             Operator::Luna => "露娜",
             Operator::HackClaw => "骇爪",
             Operator::SilverWing => "银翼",
+            Operator::EagleOwl => "赤枭（赛伊德）",
+            Operator::EagleOwlBodyguardFirebat => "赤枭亲卫（喷火兵）",
+            Operator::EagleOwlBodyguardRocketTrooper => "赤枭亲卫（火箭兵）",
         }
     }
 
@@ -77,6 +86,9 @@ impl Operator {
             40005 => Some(Operator::Luna),
             40010 => Some(Operator::HackClaw),
             40011 => Some(Operator::SilverWing),
+            50001 => Some(Operator::EagleOwl),
+            50002 => Some(Operator::EagleOwlBodyguardFirebat),
+            50003 => Some(Operator::EagleOwlBodyguardRocketTrooper),
             _ => None,
         }
     }
