@@ -1,7 +1,7 @@
 use std::io::stdin;
 
 use crate::error::Error;
-use df_sdk::credentials::Credentials;
+use sdk::credentials::Credentials;
 use std::env;
 use std::fs;
 use time::OffsetDateTime;

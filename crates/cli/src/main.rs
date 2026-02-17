@@ -4,7 +4,7 @@ mod utils;
 
 use crate::commands::Commands;
 use clap::{Args, Parser, ValueEnum};
-use df_sdk::sdk::DeltaForceSdk;
+use sdk::sdk::DeltaForceSdk;
 
 #[derive(Args)]
 #[group(multiple = false)]

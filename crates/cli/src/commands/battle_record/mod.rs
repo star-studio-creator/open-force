@@ -2,7 +2,7 @@ pub mod get;
 pub mod list;
 
 use clap::Subcommand;
-use df_sdk::sdk::DeltaForceSdk;
+use sdk::sdk::DeltaForceSdk;
 use get::get;
 use list::list;
 use time::PrimitiveDateTime;
