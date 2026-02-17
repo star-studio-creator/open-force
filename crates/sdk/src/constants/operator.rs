@@ -10,6 +10,7 @@ pub enum Operator {
     SwiftWind,
     Stinger,
     Toxik,
+    Butterfly,
     Shepherd,
     Uluru,
     // TODO: 非官方翻译
@@ -19,6 +20,9 @@ pub enum Operator {
     HackClaw,
     // TODO: 非官方翻译
     SilverWing,
+    EagleOwl,
+    EagleOwlBodyguardFirebat,
+    EagleOwlBodyguardRocketTrooper,
 }
 
 impl Operator {
@@ -30,12 +34,16 @@ impl Operator {
             "疾风" => Some(Operator::SwiftWind),
             "蜂医" => Some(Operator::Stinger),
             "蛊" => Some(Operator::Toxik),
+            "蝶" => Some(Operator::Butterfly),
             "牧羊人" => Some(Operator::Shepherd),
             "乌鲁鲁" => Some(Operator::Uluru),
             "深蓝" => Some(Operator::DeepBlue),
             "露娜" => Some(Operator::Luna),
             "骇爪" => Some(Operator::HackClaw),
             "银翼" => Some(Operator::SilverWing),
+            "赤枭（赛伊德）" => Some(Operator::EagleOwl),
+            "赤枭亲卫（喷火兵）" => Some(Operator::EagleOwlBodyguardFirebat),
+            "赤枭亲卫（火箭兵）" => Some(Operator::EagleOwlBodyguardRocketTrooper),
             _ => None,
         }
     }
@@ -48,6 +56,7 @@ impl Operator {
             Operator::SwiftWind => "疾风",
             Operator::Stinger => "蜂医",
             Operator::Toxik => "蛊",
+            Operator::Butterfly => "蝶",
             Operator::Shepherd => "牧羊人",
             Operator::Uluru => "乌鲁鲁",
             Operator::DeepBlue => "深蓝",
@@ -55,6 +64,9 @@ impl Operator {
             Operator::Luna => "露娜",
             Operator::HackClaw => "骇爪",
             Operator::SilverWing => "银翼",
+            Operator::EagleOwl => "赤枭（赛伊德）",
+            Operator::EagleOwlBodyguardFirebat => "赤枭亲卫（喷火兵）",
+            Operator::EagleOwlBodyguardRocketTrooper => "赤枭亲卫（火箭兵）",
         }
     }
 
@@ -66,6 +78,7 @@ impl Operator {
             10012 => Some(Operator::SwiftWind),
             20003 => Some(Operator::Stinger),
             20004 => Some(Operator::Toxik),
+            20005 => Some(Operator::Butterfly),
             30008 => Some(Operator::Shepherd),
             30009 => Some(Operator::Uluru),
             30010 => Some(Operator::DeepBlue),
@@ -73,6 +86,9 @@ impl Operator {
             40005 => Some(Operator::Luna),
             40010 => Some(Operator::HackClaw),
             40011 => Some(Operator::SilverWing),
+            50001 => Some(Operator::EagleOwl),
+            50002 => Some(Operator::EagleOwlBodyguardFirebat),
+            50003 => Some(Operator::EagleOwlBodyguardRocketTrooper),
             _ => None,
         }
     }
