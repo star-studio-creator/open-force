@@ -10,10 +10,7 @@ path = "src/main.rs"
 clap = { version = "4.5", features = ["derive"] }
 sdk = { path = "../sdk" }
 serde_json = "1.0"
-thiserror = "2.0"
-time = { version = "0.3", features = [
-  "formatting",
-  "local-offset",
-] }
-tokio = { version = "1.49", features = ["macros", "rt-multi-thread"] }
+thiserror = { version = "2.0", default-features = false }
+time = { version = "0.3", features = ["formatting", "local-offset"] }
+tokio = { version = "1.49", features = ["macros", "rt"] }
 tokio-stream = { version = "0.1", default-features = false }
