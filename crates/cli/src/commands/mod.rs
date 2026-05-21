@@ -3,8 +3,8 @@ pub mod room_password;
 
 use battle_record::BattleRecordCommands;
 use clap::Subcommand;
-use sdk::sdk::DeltaForceSdk;
 use room_password::RoomPasswordCommands;
+use sdk::sdk::DeltaForceSdk;
 
 use crate::OutputFormat;
 

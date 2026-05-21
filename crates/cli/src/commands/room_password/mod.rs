@@ -1,8 +1,8 @@
 pub mod get;
 
 use clap::Subcommand;
-use sdk::sdk::DeltaForceSdk;
 use get::get;
+use sdk::sdk::DeltaForceSdk;
 
 use crate::OutputFormat;
 

@@ -13,17 +13,15 @@ fn should_output_and_continue(record: &BattleRecord, since: &Option<PrimitiveDat
         return false;
     }
 
-    return true;
+    true
 }
 
 fn output(record: &BattleRecord, format: &OutputFormat) -> Result<(), Error> {
     let string = match format {
         OutputFormat::Default => record.to_string(),
-        OutputFormat::Json => {
-            serde_json::to_string(record).map_err(|e| Error::SerializeError(e))?
-        }
+        OutputFormat::Json => serde_json::to_string(record).map_err(Error::SerializeError)?,
         OutputFormat::JsonPretty => {
-            serde_json::to_string_pretty(record).map_err(|e| Error::SerializeError(e))?
+            serde_json::to_string_pretty(record).map_err(Error::SerializeError)?
         }
     };
 

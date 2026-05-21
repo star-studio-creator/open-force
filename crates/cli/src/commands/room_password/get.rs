@@ -29,7 +29,7 @@ fn output(room_password: &Vec<(Map, String)>, format: &OutputFormat) -> Result<(
                 OutputFormat::JsonPretty => serde_json::to_string_pretty(&json_value),
                 _ => unreachable!(),
             }
-            .map_err(|e| Error::SerializeError(e))?;
+            .map_err(Error::SerializeError)?;
 
             println!("{}", json_str);
         }
@@ -49,6 +49,5 @@ pub async fn get(sdk: DeltaForceSdk, format: OutputFormat) {
 
     if let Err(e) = output(&room_password, &format) {
         eprintln!("{}", e);
-        return;
     }
 }

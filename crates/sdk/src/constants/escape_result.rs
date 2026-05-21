@@ -13,6 +13,7 @@ pub enum EscapeResult {
 }
 
 impl EscapeResult {
+    #[allow(clippy::should_implement_trait)]
     pub fn from_str(x: &str) -> Option<Self> {
         match x {
             "撤离成功" => Some(EscapeResult::EscapeSuccess),
