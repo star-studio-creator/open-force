@@ -8,16 +8,6 @@ pub fn parse_str(x: &Value) -> Result<String, Error> {
     x.as_str().ok_or(Error::ParseError).map(|x| x.to_string())
 }
 
-pub fn parse_int<T>(x: &Value) -> Result<T, Error>
-where
-    T: TryFrom<i64>,
-    <T as TryFrom<i64>>::Error: std::fmt::Display,
-{
-    x.as_i64()
-        .ok_or(Error::ParseError)
-        .and_then(|x| T::try_from(x).map_err(|_| Error::ParseError))
-}
-
 pub fn parse_uint<T>(x: &Value) -> Result<T, Error>
 where
     T: TryFrom<u64>,
