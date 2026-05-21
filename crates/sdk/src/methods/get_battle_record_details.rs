@@ -51,7 +51,7 @@ fn parse_battle_record(
 impl DeltaForceSdk {
     pub async fn get_battle_record_details(&self, room_id: &str) -> Result<BattleRecord, Error> {
         let battle_record = get_battle_record_details_api(self, room_id).await?;
-        if battle_record.len() == 0 {
+        if battle_record.is_empty() {
             // TODO: 添加数据为空时的独立错误
             return Err(Error::ParseError);
         }
@@ -68,10 +68,6 @@ impl DeltaForceSdk {
             }
         }
 
-        Ok(parse_battle_record(
-            &current_user_data.unwrap(),
-            room_id,
-            teammates,
-        )?)
+        parse_battle_record(&current_user_data.unwrap(), room_id, teammates)
     }
 }

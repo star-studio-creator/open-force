@@ -12,10 +12,7 @@ pub async fn extract_data(response: Response) -> Result<Value, Error> {
         return Err(Error::HttpStatusError(response.status()));
     }
 
-    let body: Value = response
-        .json()
-        .await
-        .map_err(|e| Error::DeserializeError(e))?;
+    let body: Value = response.json().await.map_err(Error::DeserializeError)?;
 
     if body["ret"].as_u64().ok_or(Error::ParseError)? != 0
         || body["iRet"].as_u64().ok_or(Error::ParseError)? != 0
@@ -28,7 +25,7 @@ pub async fn extract_data(response: Response) -> Result<Value, Error> {
     body["jData"]
         .as_object()
         .ok_or(Error::ParseError)
-        .and_then(|x| Ok(x["data"].clone()))
+        .map(|x| x["data"].clone())
 }
 
 pub async fn send_api_request(
@@ -56,7 +53,7 @@ pub async fn send_api_request(
         );
     }
 
-    let response = request.send().await.map_err(|e| Error::RequestError(e))?;
+    let response = request.send().await.map_err(Error::RequestError)?;
 
-    Ok(extract_data(response).await?)
+    extract_data(response).await
 }

@@ -62,7 +62,7 @@ impl DeltaForceSdk {
         Box::pin(stream! {
             let mut page: u8 = 1;
             loop {
-                let battle_records = match get_battle_records_list_api(&self, page).await {
+                let battle_records = match get_battle_records_list_api(self, page).await {
                     // 没有新的对局记录
                     Ok(x) if x.is_empty() => break,
                     Ok(x) => x,
@@ -81,7 +81,7 @@ impl DeltaForceSdk {
                         }
                     };
 
-                    let battle_details = match get_battle_record_details_api(&self, &room_id).await {
+                    let battle_details = match get_battle_record_details_api(self, &room_id).await {
                         Ok(details) => details,
                         Err(e) => {
                             yield Err(e);

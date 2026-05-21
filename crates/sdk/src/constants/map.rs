@@ -11,6 +11,7 @@ pub enum Map {
 }
 
 impl Map {
+    #[allow(clippy::should_implement_trait)]
     pub fn from_str(x: &str) -> Option<Self> {
         match x {
             "零号大坝" => Some(Map::Dam),
@@ -36,7 +37,7 @@ impl Map {
         match x {
             2201 | 2202 | 2211 | 2212 | 2231 | 2232 | 2242 => Some(Map::Dam),
             1901 | 1902 | 1911 | 1912 => Some(Map::Forest),
-            8101 | 8102 | 8103 => Some(Map::Brakkesh),
+            8101..=8103 => Some(Map::Brakkesh),
             3901 | 3902 => Some(Map::SpaceCity),
             8802 | 8803 => Some(Map::TidalPrison),
             _ => None,

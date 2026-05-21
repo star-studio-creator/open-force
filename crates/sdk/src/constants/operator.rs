@@ -27,6 +27,7 @@ pub enum Operator {
 }
 
 impl Operator {
+    #[allow(clippy::should_implement_trait)]
     pub fn from_str(x: &str) -> Option<Self> {
         match x {
             "红狼" => Some(Operator::DWolf),

@@ -57,3 +57,9 @@ impl DeltaForceSdkBuilder {
         }
     }
 }
+
+impl Default for DeltaForceSdkBuilder {
+    fn default() -> Self {
+        Self::new()
+    }
+}

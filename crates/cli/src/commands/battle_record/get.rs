@@ -6,11 +6,9 @@ use crate::{commands::battle_record::OutputFormat, error::Error};
 fn output(record: &BattleRecord, format: &OutputFormat) -> Result<(), Error> {
     let string = match format {
         OutputFormat::Default => record.to_string(),
-        OutputFormat::Json => {
-            serde_json::to_string(record).map_err(|e| Error::SerializeError(e))?
-        }
+        OutputFormat::Json => serde_json::to_string(record).map_err(Error::SerializeError)?,
         OutputFormat::JsonPretty => {
-            serde_json::to_string_pretty(record).map_err(|e| Error::SerializeError(e))?
+            serde_json::to_string_pretty(record).map_err(Error::SerializeError)?
         }
     };
 
@@ -29,6 +27,5 @@ pub async fn get(sdk: DeltaForceSdk, room_id: String, format: OutputFormat) {
 
     if let Err(e) = output(&battle_record_details, &format) {
         eprintln!("{}", e);
-        return;
     }
 }

@@ -82,10 +82,7 @@ pub fn parse_datetime(x: &str) -> Result<PrimitiveDateTime, String> {
     }
 
     let time_now = OffsetDateTime::now_local().unwrap();
-    let all_formats = [date_format]
-        .into_iter()
-        .chain(formats.into_iter())
-        .collect::<Vec<_>>();
+    let all_formats = [date_format].into_iter().chain(formats).collect::<Vec<_>>();
     let supported_format_examples = all_formats
         .iter()
         .map(|format| time_now.format(format).unwrap())
