@@ -50,7 +50,7 @@ fn parse_battle_record(
         kill_operators_count: parse_uint(&data["KillCount"])?,
         kill_bots_count: parse_uint(&data["KillAICount"])?,
         escape_value,
-        net_profit: parse_int(&data["flowCalGainedPrice"])?,
+        net_profit: parse_str_then_number(&data["flowCalGainedPrice"])?,
         teammates,
     })
 }
@@ -105,7 +105,7 @@ impl DeltaForceSdk {
                             // 未知原因导致此字段有小概率为 null，此时会导致解析异常
                             // 此时基于净收益（flowCalGainedPrice）估计带出价值
                             match &player_data["FinalPrice"].as_null() {
-                                Some(_) => escape_value = Some(estimate_escape_value(parse_int::<i32>(&battle_record["flowCalGainedPrice"])?)),
+                                Some(_) => escape_value = Some(estimate_escape_value(parse_str_then_number::<i32>(&battle_record["flowCalGainedPrice"])?)),
                                 None => {
                                     match parse_str_then_number(&player_data["FinalPrice"]) {
                                         Ok(value) => escape_value = Some(value),
@@ -131,7 +131,7 @@ impl DeltaForceSdk {
                     // 因此 battle_details 的解析循环不会执行，从而导致 escape_value 为 None
                     // 此时基于净收益（flowCalGainedPrice）估计带出价值
                     if escape_value.is_none() {
-                        escape_value = Some(estimate_escape_value(parse_int(&battle_record["flowCalGainedPrice"])?));
+                        escape_value = Some(estimate_escape_value(parse_str_then_number(&battle_record["flowCalGainedPrice"])?));
                     }
                     match parse_battle_record(&battle_record, escape_value.unwrap(), teammates) {
                         Ok(record) => yield Ok(record),
