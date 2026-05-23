@@ -1,6 +1,7 @@
 [package]
 name = "sdk"
 edition = "2024"
+rust-version = "1.88"
 
 [dependencies]
 async-stream = "0.3.6"

@@ -1,6 +1,7 @@
 [package]
 name = "cli"
 edition = "2024"
+rust-version = "1.88"
 
 [[bin]]
 name = "ofcli"
