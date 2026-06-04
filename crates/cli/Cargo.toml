@@ -10,7 +10,7 @@ path = "src/main.rs"
 [dependencies]
 clap = { version = "4.6.1", features = ["derive"] }
 sdk = { path = "../sdk" }
-serde_json = "1.0.149"
+serde_json = "1.0.150"
 thiserror = { version = "2.0.18", default-features = false }
 time = { version = "0.3.47", features = ["formatting", "local-offset"] }
 tokio = { version = "1.50.0", features = ["macros", "rt"] }
