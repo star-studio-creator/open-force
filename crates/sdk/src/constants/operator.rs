@@ -41,6 +41,7 @@ impl Operator {
             "牧羊人" => Some(Operator::Shepherd),
             "乌鲁鲁" => Some(Operator::Uluru),
             "深蓝" => Some(Operator::DeepBlue),
+            "比特" => Some(Operator::Bit),
             "液氮" => Some(Operator::NTwo),
             "露娜" => Some(Operator::Luna),
             "骇爪" => Some(Operator::HackClaw),
