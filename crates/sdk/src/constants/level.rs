@@ -44,8 +44,8 @@ impl Level {
 
     pub fn from_map_id(x: u16) -> Option<Self> {
         match x {
-            2201 | 2211 | 1901 | 1911 | 8101 => Some(Level::Normal),
-            1902 | 1912 | 2202 | 2212 | 3901 | 8102 => Some(Level::Secret),
+            2201 | 2211 | 1901 | 1911 | 8101 | 8901 => Some(Level::Normal),
+            1902 | 1912 | 2202 | 2212 | 3901 | 8102 | 8902 => Some(Level::Secret),
             3902 | 8103 | 8803 => Some(Level::TopSecret),
             2231 => Some(Level::NormalNight),
             2232 => Some(Level::SecretNight),

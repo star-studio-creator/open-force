@@ -73,6 +73,11 @@ impl DeltaForceSdk {
                 };
 
                 for battle_record in battle_records {
+                    // 跳过烽火挑战相关对局记录
+                    if matches!(battle_record["MapId"].as_str(), Some("2251" | "3951" | "8151")) {
+                        continue;
+                    }
+
                     let room_id = match parse_str(&battle_record["RoomId"]) {
                         Ok(id) => id,
                         Err(e) => {
