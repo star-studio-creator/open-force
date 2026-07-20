@@ -8,6 +8,7 @@ pub enum Map {
     SpaceCity,
     // TODO: 非官方翻译
     TidalPrison,
+    AZ3,
 }
 
 impl Map {
@@ -19,6 +20,7 @@ impl Map {
             "巴克什" => Some(Map::Brakkesh),
             "航天基地" => Some(Map::SpaceCity),
             "潮汐监狱" => Some(Map::TidalPrison),
+            "AZ3" => Some(Map::AZ3),
             _ => None,
         }
     }
@@ -30,6 +32,7 @@ impl Map {
             Map::Brakkesh => "巴克什",
             Map::SpaceCity => "航天基地",
             Map::TidalPrison => "潮汐监狱",
+            Map::AZ3 => "AZ3",
         }
     }
 
@@ -40,6 +43,7 @@ impl Map {
             8101..=8103 => Some(Map::Brakkesh),
             3901 | 3902 => Some(Map::SpaceCity),
             8802 | 8803 => Some(Map::TidalPrison),
+            8901 | 8902 => Some(Map::AZ3),
             _ => None,
         }
     }
