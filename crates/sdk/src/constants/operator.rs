@@ -16,6 +16,7 @@ pub enum Operator {
     // TODO: 非官方翻译
     DeepBlue,
     Bit,
+    NTwo,
     Luna,
     HackClaw,
     // TODO: 非官方翻译
@@ -40,6 +41,7 @@ impl Operator {
             "牧羊人" => Some(Operator::Shepherd),
             "乌鲁鲁" => Some(Operator::Uluru),
             "深蓝" => Some(Operator::DeepBlue),
+            "液氮" => Some(Operator::NTwo),
             "露娜" => Some(Operator::Luna),
             "骇爪" => Some(Operator::HackClaw),
             "银翼" => Some(Operator::SilverWing),
@@ -64,6 +66,7 @@ impl Operator {
             Operator::Uluru => "乌鲁鲁",
             Operator::DeepBlue => "深蓝",
             Operator::Bit => "比特",
+            Operator::NTwo => "液氮",
             Operator::Luna => "露娜",
             Operator::HackClaw => "骇爪",
             Operator::SilverWing => "银翼",
@@ -87,6 +90,7 @@ impl Operator {
             30009 => Some(Operator::Uluru),
             30010 => Some(Operator::DeepBlue),
             30011 => Some(Operator::Bit),
+            30012 => Some(Operator::NTwo),
             40005 => Some(Operator::Luna),
             40010 => Some(Operator::HackClaw),
             40011 => Some(Operator::SilverWing),
