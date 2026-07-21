@@ -78,7 +78,7 @@ impl Display for BattleRecord {
             self.kill_operators_count, self.kill_bots_count,
         )?;
         writeln!(f, "带出价值：{}", self.escape_value)?;
-        writeln!(f, "净收益：{}", self.escape_value)?;
+        writeln!(f, "净收益：{}", self.net_profit)?;
 
         if self.teammates.is_empty() {
             writeln!(f, "无队友")?;

@@ -13,7 +13,6 @@ pub async fn get_battle_records_list_api(
         sdk,
         &[
             ("iChartId", "450526"),
-            ("iSubChartId", "450526"),
             ("sIdeToken", "PHq59Y"),
             ("type", "4"),
             ("page", &page.to_string()),
@@ -34,10 +33,8 @@ pub async fn get_battle_record_details_api(
         sdk,
         &[
             ("iChartId", "450471"),
-            ("iSubChartId", "450471"),
             ("sIdeToken", "ylP3eG"),
             ("roomId", room_id),
-            ("type", "2"),
         ],
         true,
     )
